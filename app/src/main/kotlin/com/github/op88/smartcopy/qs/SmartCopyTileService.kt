@@ -30,6 +30,7 @@ class SmartCopyTileService : TileService() {
         }
     }
 
+    @android.annotation.SuppressLint("StartActivityAndCollapseDeprecated")
     override fun onClick() {
         super.onClick()
         // Collapse the shade and launch MainActivity in QS-trigger mode.
