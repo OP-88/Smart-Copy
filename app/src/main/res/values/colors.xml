@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ── Background colours ── -->
+    <color name="background_dark">#FF0A0A0F</color>
+    <color name="surface_dark">#FF0F172A</color>
+    <color name="surface_variant">#FF1E293B</color>
+
+    <!-- ── Brand colours ── -->
+    <color name="primary_cyan">#FF38BDF8</color>
+    <color name="primary_cyan_dark">#FF0C4A6E</color>
+    <color name="on_primary">#FF0A0A0F</color>
+
+    <!-- ── Text colours ── -->
+    <color name="text_primary">#FFF1F5F9</color>
+    <color name="text_secondary">#FF94A3B8</color>
+    <color name="text_disabled">#FF475569</color>
+
+    <!-- ── Status colours ── -->
+    <color name="success_green">#FF4ADE80</color>
+    <color name="error_red">#FFEF4444</color>
+    <color name="warning_amber">#FFFBBF24</color>
+
+    <!-- ── Overlay / Selection colours ── -->
+    <color name="scrim_black">#780A0A0F</color>
+    <color name="selection_cyan">#2838BDF8</color>
+    <color name="selection_border">#FF38BDF8</color>
+
+    <!-- ── Dividers ── -->
+    <color name="divider">#FF334155</color>
+</resources>

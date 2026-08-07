@@ -1,0 +1,46 @@
+# Smart Copy — Android .gitignore
+# Based on Android Studio defaults with privacy additions
+
+# Build outputs
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Generated outputs — never commit APKs or AABs to source control
+*.apk
+*.aab
+*.ap_
+
+# Keystore / signing credentials — NEVER commit signing keys
+*.jks
+*.keystore
+keystore.properties
+release.properties
+
+# Logs
+*.log
+
+# Gradle wrapper (keep the jar, ignore the cache)
+gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Kotlin/IDE
+.kotlin
+*.class
+out/
+
+# macOS
+.DS_Store
+**/.DS_Store

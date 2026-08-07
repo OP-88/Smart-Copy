@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        ╔══════════════════════════════════════════════════════════════════╗
+        ║  SMART COPY — ZERO NETWORK MANIFEST                             ║
+        ║  android.permission.INTERNET is intentionally ABSENT.           ║
+        ║  No data ever leaves this device. This is cryptographically     ║
+        ║  enforceable by inspecting this manifest.                       ║
+        ╚══════════════════════════════════════════════════════════════════╝
+    -->
+
+    <!-- Overlay: Floating Edge Bubble + Freeze overlay -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Screen capture foreground service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+
+    <!-- Notification channel (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Vibrate for haptic feedback on snaps -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Restore edge bubble after device reboot (only if user had it enabled) -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         NO INTERNET PERMISSION — verified absence below for auditing
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+    <application
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@drawable/ic_smartcopy"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_smartcopy"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartCopy"
+        tools:targetApi="31">
+
+        <!-- ── Main Entry Activity ── -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ── Settings Activity ── -->
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_title"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- ── Overlay / Capture Foreground Service ── -->
+        <service
+            android:name=".overlay.OverlayService"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+
+        <!--
+            ── Edge Bubble Service ──
+            Ultra-lightweight: ~0% CPU idle, IMPORTANCE_MIN notification.
+            Only started when user enables the bubble in Settings.
+            START_NOT_STICKY: OS may kill under memory pressure; no auto-restart.
+        -->
+        <service
+            android:name=".overlay.EdgeBubbleService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:label="Smart Copy Bubble" />
+
+        <!-- ── Boot Receiver — restores edge bubble if it was enabled ── -->
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter android:priority="0">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ── Quick Settings Tile ── -->
+        <service
+            android:name=".qs.SmartCopyTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_smartcopy"
+            android:label="@string/qs_tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <!-- ── WorkManager initializer (auto-initialization) ── -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge" />
+
+    </application>
+
+</manifest>
