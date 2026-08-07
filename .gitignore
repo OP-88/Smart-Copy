@@ -32,9 +32,11 @@ release.properties
 # Logs
 *.log
 
-# Gradle wrapper (keep the jar, ignore the cache)
-gradle/wrapper/gradle-wrapper.jar
+# Gradle wrapper — JAR must be committed, only exclude the cache
+!gradle/wrapper/gradle-wrapper.jar
 !gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
 
 # Kotlin/IDE
 .kotlin
