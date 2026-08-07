@@ -1,0 +1,579 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.github.op88.smartcopy.debug"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="28"
+9        android:targetSdkVersion="35" />
+10
+11    <!--
+12        ╔══════════════════════════════════════════════════════════════════╗
+13        ║  SMART COPY — ZERO NETWORK MANIFEST                             ║
+14        ║  android.permission.INTERNET is intentionally ABSENT.           ║
+15        ║  No data ever leaves this device. This is cryptographically     ║
+16        ║  enforceable by inspecting this manifest.                       ║
+17        ╚══════════════════════════════════════════════════════════════════╝
+18    -->
+19
+20
+21    <!-- Overlay: Floating Edge Bubble + Freeze overlay -->
+22    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+22-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:15:5-78
+22-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:15:22-75
+23
+24    <!-- Screen capture foreground service -->
+25    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+25-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:18:5-77
+25-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:18:22-74
+26    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+26-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:19:5-94
+26-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:19:22-91
+27    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+27-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:20:5-89
+27-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:20:22-86
+28
+29    <!-- Notification channel (Android 13+) -->
+30    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+30-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:23:5-77
+30-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:23:22-74
+31
+32    <!-- Vibrate for haptic feedback on snaps -->
+33    <uses-permission android:name="android.permission.VIBRATE" />
+33-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:26:5-66
+33-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:26:22-63
+34
+35    <!-- Restore edge bubble after device reboot (only if user had it enabled) -->
+36    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+36-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:29:5-81
+36-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:29:22-78
+37    <uses-permission android:name="android.permission.WAKE_LOCK" />
+37-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:23:5-68
+37-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:23:22-65
+38    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+38-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:24:5-79
+38-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:24:22-76
+39
+40    <permission
+40-->[androidx.core:core:1.13.1] /home/marc/.gradle/caches/8.14.3/transforms/016039fb3e0ac214b33f62b631591201/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+41        android:name="com.github.op88.smartcopy.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+41-->[androidx.core:core:1.13.1] /home/marc/.gradle/caches/8.14.3/transforms/016039fb3e0ac214b33f62b631591201/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+42        android:protectionLevel="signature" />
+42-->[androidx.core:core:1.13.1] /home/marc/.gradle/caches/8.14.3/transforms/016039fb3e0ac214b33f62b631591201/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+43
+44    <uses-permission android:name="com.github.op88.smartcopy.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+44-->[androidx.core:core:1.13.1] /home/marc/.gradle/caches/8.14.3/transforms/016039fb3e0ac214b33f62b631591201/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+44-->[androidx.core:core:1.13.1] /home/marc/.gradle/caches/8.14.3/transforms/016039fb3e0ac214b33f62b631591201/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+45    <uses-permission android:name="android.permission.INTERNET" />
+45-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/marc/.gradle/caches/8.14.3/transforms/aa222afea1b55985c09bbac800af7f2d/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:26:5-67
+45-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/marc/.gradle/caches/8.14.3/transforms/aa222afea1b55985c09bbac800af7f2d/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:26:22-64
+46    <!--
+47 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+48         NO INTERNET PERMISSION — verified absence below for auditing
+49         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+50    -->
+51    <application
+51-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:35:5-118:19
+52        android:allowBackup="false"
+52-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:36:9-36
+53        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+53-->[androidx.core:core:1.13.1] /home/marc/.gradle/caches/8.14.3/transforms/016039fb3e0ac214b33f62b631591201/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+54        android:dataExtractionRules="@xml/data_extraction_rules"
+54-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:37:9-65
+55        android:debuggable="true"
+56        android:extractNativeLibs="false"
+57        android:fullBackupContent="false"
+57-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:38:9-42
+58        android:icon="@drawable/ic_smartcopy"
+58-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:39:9-46
+59        android:label="@string/app_name"
+59-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:40:9-41
+60        android:roundIcon="@drawable/ic_smartcopy"
+60-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:41:9-51
+61        android:supportsRtl="true"
+61-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:42:9-35
+62        android:theme="@style/Theme.SmartCopy" >
+62-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:43:9-47
+63
+64        <!-- ── Main Entry Activity ── -->
+65        <activity
+65-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:47:9-56:20
+66            android:name="com.github.op88.smartcopy.MainActivity"
+66-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:48:13-41
+67            android:exported="true"
+67-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:49:13-36
+68            android:label="@string/app_name"
+68-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:50:13-45
+69            android:windowSoftInputMode="adjustResize" >
+69-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:51:13-55
+70            <intent-filter>
+70-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:52:13-55:29
+71                <action android:name="android.intent.action.MAIN" />
+71-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:53:17-69
+71-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:53:25-66
+72
+73                <category android:name="android.intent.category.LAUNCHER" />
+73-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:54:17-77
+73-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:54:27-74
+74            </intent-filter>
+75        </activity>
+76
+77        <!-- ── Settings Activity ── -->
+78        <activity
+78-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:59:9-63:58
+79            android:name="com.github.op88.smartcopy.settings.SettingsActivity"
+79-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:60:13-54
+80            android:exported="false"
+80-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:61:13-37
+81            android:label="@string/settings_title"
+81-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:62:13-51
+82            android:parentActivityName="com.github.op88.smartcopy.MainActivity" />
+82-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:63:13-55
+83
+84        <!-- ── Overlay / Capture Foreground Service ── -->
+85        <service
+85-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:66:9-70:82
+86            android:name="com.github.op88.smartcopy.overlay.OverlayService"
+86-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:67:13-51
+87            android:exported="false"
+87-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:68:13-37
+88            android:foregroundServiceType="mediaProjection"
+88-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:69:13-60
+89            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+89-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:70:13-79
+90
+91        <!--
+92            ── Edge Bubble Service ──
+93            Ultra-lightweight: ~0% CPU idle, IMPORTANCE_MIN notification.
+94            Only started when user enables the bubble in Settings.
+95            START_NOT_STICKY: OS may kill under memory pressure; no auto-restart.
+96        -->
+97        <service
+97-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:78:9-86:19
+98            android:name="com.github.op88.smartcopy.overlay.EdgeBubbleService"
+98-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:79:13-54
+99            android:exported="false"
+99-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:80:13-37
+100            android:foregroundServiceType="specialUse"
+100-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:81:13-55
+101            android:label="Smart Copy Bubble" >
+101-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:82:13-46
+102            <property
+102-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:83:13-85:99
+103                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+103-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:84:17-76
+104                android:value="Floating edge trigger bubble for quick access to screen capture" />
+104-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:85:17-96
+105        </service>
+106
+107        <!-- ── Boot Receiver — restores edge bubble if it was enabled ── -->
+108        <receiver
+108-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:89:9-97:20
+109            android:name="com.github.op88.smartcopy.BootReceiver"
+109-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:90:13-41
+110            android:enabled="true"
+110-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:92:13-35
+111            android:exported="false" >
+111-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:91:13-37
+112            <intent-filter android:priority="0" >
+112-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:93:13-96:29
+112-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:93:28-48
+113                <action android:name="android.intent.action.BOOT_COMPLETED" />
+113-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:94:17-79
+113-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:94:25-76
+114                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+114-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:95:17-86
+114-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:95:25-83
+115            </intent-filter>
+116        </receiver>
+117
+118        <!-- ── Quick Settings Tile ── -->
+119        <service
+119-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:100:9-109:19
+120            android:name="com.github.op88.smartcopy.qs.SmartCopyTileService"
+120-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:101:13-52
+121            android:exported="true"
+121-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:102:13-36
+122            android:icon="@drawable/ic_smartcopy"
+122-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:103:13-50
+123            android:label="@string/qs_tile_label"
+123-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:104:13-50
+124            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+124-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:105:13-77
+125            <intent-filter>
+125-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:106:13-108:29
+126                <action android:name="android.service.quicksettings.action.QS_TILE" />
+126-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:107:17-87
+126-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:107:25-84
+127            </intent-filter>
+128        </service>
+129
+130        <!-- ── WorkManager initializer (auto-initialization) ── -->
+131        <provider
+132            android:name="androidx.startup.InitializationProvider"
+132-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:113:13-67
+133            android:authorities="com.github.op88.smartcopy.debug.androidx-startup"
+133-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:114:13-68
+134            android:exported="false" >
+134-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:115:13-37
+135            <meta-data
+135-->[androidx.emoji2:emoji2:1.3.0] /home/marc/.gradle/caches/8.14.3/transforms/0f64376e340936455c79c763e57da957/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+136                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+136-->[androidx.emoji2:emoji2:1.3.0] /home/marc/.gradle/caches/8.14.3/transforms/0f64376e340936455c79c763e57da957/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:30:17-75
+137                android:value="androidx.startup" />
+137-->[androidx.emoji2:emoji2:1.3.0] /home/marc/.gradle/caches/8.14.3/transforms/0f64376e340936455c79c763e57da957/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:31:17-49
+138            <meta-data
+138-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:34:13-36:52
+139                android:name="androidx.work.WorkManagerInitializer"
+139-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:35:17-68
+140                android:value="androidx.startup" />
+140-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:36:17-49
+141            <meta-data
+141-->[androidx.lifecycle:lifecycle-process:2.8.6] /home/marc/.gradle/caches/8.14.3/transforms/4fb1bc3cc5b5944089fec49c5e13e88a/transformed/jetified-lifecycle-process-2.8.6/AndroidManifest.xml:29:13-31:52
+142                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+142-->[androidx.lifecycle:lifecycle-process:2.8.6] /home/marc/.gradle/caches/8.14.3/transforms/4fb1bc3cc5b5944089fec49c5e13e88a/transformed/jetified-lifecycle-process-2.8.6/AndroidManifest.xml:30:17-78
+143                android:value="androidx.startup" />
+143-->[androidx.lifecycle:lifecycle-process:2.8.6] /home/marc/.gradle/caches/8.14.3/transforms/4fb1bc3cc5b5944089fec49c5e13e88a/transformed/jetified-lifecycle-process-2.8.6/AndroidManifest.xml:31:17-49
+144            <meta-data
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+145                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+146                android:value="androidx.startup" />
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+147        </provider>
+148
+149        <service
+149-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/marc/.gradle/caches/8.14.3/transforms/00e4d938b0c6d23fa1a85652d42fe61d/transformed/jetified-play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:9:9-15:19
+150            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+150-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/marc/.gradle/caches/8.14.3/transforms/00e4d938b0c6d23fa1a85652d42fe61d/transformed/jetified-play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:10:13-91
+151            android:directBootAware="true"
+151-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:17:13-43
+152            android:exported="false" >
+152-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/marc/.gradle/caches/8.14.3/transforms/00e4d938b0c6d23fa1a85652d42fe61d/transformed/jetified-play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:11:13-37
+153            <meta-data
+153-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/marc/.gradle/caches/8.14.3/transforms/00e4d938b0c6d23fa1a85652d42fe61d/transformed/jetified-play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:12:13-14:85
+154                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
+154-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/marc/.gradle/caches/8.14.3/transforms/00e4d938b0c6d23fa1a85652d42fe61d/transformed/jetified-play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:13:17-114
+155                android:value="com.google.firebase.components.ComponentRegistrar" />
+155-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/marc/.gradle/caches/8.14.3/transforms/00e4d938b0c6d23fa1a85652d42fe61d/transformed/jetified-play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:14:17-82
+156            <meta-data
+156-->[com.google.mlkit:vision-common:17.3.0] /home/marc/.gradle/caches/8.14.3/transforms/7f891b4d02220018c90fefe10e696413/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:12:13-14:85
+157                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+157-->[com.google.mlkit:vision-common:17.3.0] /home/marc/.gradle/caches/8.14.3/transforms/7f891b4d02220018c90fefe10e696413/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:13:17-124
+158                android:value="com.google.firebase.components.ComponentRegistrar" />
+158-->[com.google.mlkit:vision-common:17.3.0] /home/marc/.gradle/caches/8.14.3/transforms/7f891b4d02220018c90fefe10e696413/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:14:17-82
+159            <meta-data
+159-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:20:13-22:85
+160                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+160-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:21:17-120
+161                android:value="com.google.firebase.components.ComponentRegistrar" />
+161-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:22:17-82
+162        </service>
+163
+164        <provider
+164-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:9:9-13:38
+165            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+165-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:10:13-78
+166            android:authorities="com.github.op88.smartcopy.debug.mlkitinitprovider"
+166-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:11:13-69
+167            android:exported="false"
+167-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:12:13-37
+168            android:initOrder="99" />
+168-->[com.google.mlkit:common:18.11.0] /home/marc/.gradle/caches/8.14.3/transforms/541431ef66943a4910848eb5521a2218/transformed/jetified-common-18.11.0/AndroidManifest.xml:13:13-35
+169
+170        <activity
+170-->[com.google.android.gms:play-services-base:18.5.0] /home/marc/.gradle/caches/8.14.3/transforms/a9cad62bb7365278e3c4c742016bbf62/transformed/jetified-play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+171            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+171-->[com.google.android.gms:play-services-base:18.5.0] /home/marc/.gradle/caches/8.14.3/transforms/a9cad62bb7365278e3c4c742016bbf62/transformed/jetified-play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+172            android:exported="false"
+172-->[com.google.android.gms:play-services-base:18.5.0] /home/marc/.gradle/caches/8.14.3/transforms/a9cad62bb7365278e3c4c742016bbf62/transformed/jetified-play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+173            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+173-->[com.google.android.gms:play-services-base:18.5.0] /home/marc/.gradle/caches/8.14.3/transforms/a9cad62bb7365278e3c4c742016bbf62/transformed/jetified-play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+174
+175        <meta-data
+175-->[com.google.android.gms:play-services-basement:18.4.0] /home/marc/.gradle/caches/8.14.3/transforms/47b570459399ca6e575cf7d1218fe58b/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+176            android:name="com.google.android.gms.version"
+176-->[com.google.android.gms:play-services-basement:18.4.0] /home/marc/.gradle/caches/8.14.3/transforms/47b570459399ca6e575cf7d1218fe58b/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+177            android:value="@integer/google_play_services_version" />
+177-->[com.google.android.gms:play-services-basement:18.4.0] /home/marc/.gradle/caches/8.14.3/transforms/47b570459399ca6e575cf7d1218fe58b/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+178
+179        <activity
+179-->[androidx.compose.ui:ui-tooling-android:1.7.5] /home/marc/.gradle/caches/8.14.3/transforms/cfc9192b0367ac41c77c0c33dc83b649/transformed/jetified-ui-tooling-release/AndroidManifest.xml:23:9-25:39
+180            android:name="androidx.compose.ui.tooling.PreviewActivity"
+180-->[androidx.compose.ui:ui-tooling-android:1.7.5] /home/marc/.gradle/caches/8.14.3/transforms/cfc9192b0367ac41c77c0c33dc83b649/transformed/jetified-ui-tooling-release/AndroidManifest.xml:24:13-71
+181            android:exported="true" />
+181-->[androidx.compose.ui:ui-tooling-android:1.7.5] /home/marc/.gradle/caches/8.14.3/transforms/cfc9192b0367ac41c77c0c33dc83b649/transformed/jetified-ui-tooling-release/AndroidManifest.xml:25:13-36
+182
+183        <service
+183-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:39:9-45:35
+184            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+184-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:40:13-88
+185            android:directBootAware="false"
+185-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:41:13-44
+186            android:enabled="@bool/enable_system_alarm_service_default"
+186-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:42:13-72
+187            android:exported="false" />
+187-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:43:13-37
+188        <service
+188-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:46:9-52:35
+189            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+189-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:47:13-84
+190            android:directBootAware="false"
+190-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:48:13-44
+191            android:enabled="@bool/enable_system_job_service_default"
+191-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:49:13-70
+192            android:exported="true"
+192-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:50:13-36
+193            android:permission="android.permission.BIND_JOB_SERVICE" />
+193-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:51:13-69
+194        <service
+194-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:53:9-59:35
+195            android:name="androidx.work.impl.foreground.SystemForegroundService"
+195-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:54:13-81
+196            android:directBootAware="false"
+196-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:55:13-44
+197            android:enabled="@bool/enable_system_foreground_service_default"
+197-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:56:13-77
+198            android:exported="false" />
+198-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:57:13-37
+199
+200        <receiver
+200-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:61:9-66:35
+201            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+201-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:62:13-88
+202            android:directBootAware="false"
+202-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:63:13-44
+203            android:enabled="true"
+203-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:64:13-35
+204            android:exported="false" />
+204-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:65:13-37
+205        <receiver
+205-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:67:9-77:20
+206            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+206-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:68:13-106
+207            android:directBootAware="false"
+207-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:69:13-44
+208            android:enabled="false"
+208-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:70:13-36
+209            android:exported="false" >
+209-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:71:13-37
+210            <intent-filter>
+210-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:73:13-76:29
+211                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+211-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:74:17-87
+211-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:74:25-84
+212                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+212-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:75:17-90
+212-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:75:25-87
+213            </intent-filter>
+214        </receiver>
+215        <receiver
+215-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:78:9-88:20
+216            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+216-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:79:13-104
+217            android:directBootAware="false"
+217-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:80:13-44
+218            android:enabled="false"
+218-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:81:13-36
+219            android:exported="false" >
+219-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:82:13-37
+220            <intent-filter>
+220-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:84:13-87:29
+221                <action android:name="android.intent.action.BATTERY_OKAY" />
+221-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:17-77
+221-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:25-74
+222                <action android:name="android.intent.action.BATTERY_LOW" />
+222-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:17-76
+222-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:25-73
+223            </intent-filter>
+224        </receiver>
+225        <receiver
+225-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:89:9-99:20
+226            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+226-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:90:13-104
+227            android:directBootAware="false"
+227-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:91:13-44
+228            android:enabled="false"
+228-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:92:13-36
+229            android:exported="false" >
+229-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:93:13-37
+230            <intent-filter>
+230-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:95:13-98:29
+231                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+231-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:17-83
+231-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:25-80
+232                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+232-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:17-82
+232-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:25-79
+233            </intent-filter>
+234        </receiver>
+235        <receiver
+235-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:100:9-109:20
+236            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+236-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:101:13-103
+237            android:directBootAware="false"
+237-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:102:13-44
+238            android:enabled="false"
+238-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:103:13-36
+239            android:exported="false" >
+239-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:104:13-37
+240            <intent-filter>
+240-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:106:13-108:29
+241                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+241-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:17-79
+241-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:25-76
+242            </intent-filter>
+243        </receiver>
+244        <receiver
+244-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:110:9-121:20
+245            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+245-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:111:13-88
+246            android:directBootAware="false"
+246-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:112:13-44
+247            android:enabled="false"
+247-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:113:13-36
+248            android:exported="false" >
+248-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:114:13-37
+249            <intent-filter>
+249-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:116:13-120:29
+250                <action android:name="android.intent.action.BOOT_COMPLETED" />
+250-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:94:17-79
+250-->/home/marc/Documents/Verba-mvp/SmartCopy/app/src/main/AndroidManifest.xml:94:25-76
+251                <action android:name="android.intent.action.TIME_SET" />
+251-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:118:17-73
+251-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:118:25-70
+252                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+252-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:119:17-81
+252-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:119:25-78
+253            </intent-filter>
+254        </receiver>
+255        <receiver
+255-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:122:9-131:20
+256            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+256-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:123:13-99
+257            android:directBootAware="false"
+257-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:124:13-44
+258            android:enabled="@bool/enable_system_alarm_service_default"
+258-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:125:13-72
+259            android:exported="false" >
+259-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:126:13-37
+260            <intent-filter>
+260-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:128:13-130:29
+261                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+261-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:17-98
+261-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:25-95
+262            </intent-filter>
+263        </receiver>
+264        <receiver
+264-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:132:9-142:20
+265            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+265-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:133:13-78
+266            android:directBootAware="false"
+266-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:134:13-44
+267            android:enabled="true"
+267-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:135:13-35
+268            android:exported="true"
+268-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:136:13-36
+269            android:permission="android.permission.DUMP" >
+269-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:137:13-57
+270            <intent-filter>
+270-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:139:13-141:29
+271                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+271-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:17-88
+271-->[androidx.work:work-runtime:2.9.1] /home/marc/.gradle/caches/8.14.3/transforms/50b939e58a5db4b865e3a9e08c64f683/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:25-85
+272            </intent-filter>
+273        </receiver>
+274
+275        <uses-library
+275-->[androidx.window:window:1.0.0] /home/marc/.gradle/caches/8.14.3/transforms/de4d8b6872c1e86e5ae958350ee79c3f/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
+276            android:name="androidx.window.extensions"
+276-->[androidx.window:window:1.0.0] /home/marc/.gradle/caches/8.14.3/transforms/de4d8b6872c1e86e5ae958350ee79c3f/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
+277            android:required="false" />
+277-->[androidx.window:window:1.0.0] /home/marc/.gradle/caches/8.14.3/transforms/de4d8b6872c1e86e5ae958350ee79c3f/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
+278        <uses-library
+278-->[androidx.window:window:1.0.0] /home/marc/.gradle/caches/8.14.3/transforms/de4d8b6872c1e86e5ae958350ee79c3f/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
+279            android:name="androidx.window.sidecar"
+279-->[androidx.window:window:1.0.0] /home/marc/.gradle/caches/8.14.3/transforms/de4d8b6872c1e86e5ae958350ee79c3f/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
+280            android:required="false" />
+280-->[androidx.window:window:1.0.0] /home/marc/.gradle/caches/8.14.3/transforms/de4d8b6872c1e86e5ae958350ee79c3f/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
+281
+282        <service
+282-->[androidx.room:room-runtime:2.5.0] /home/marc/.gradle/caches/8.14.3/transforms/21b91244852da9f9574391e333ae378c/transformed/room-runtime-2.5.0/AndroidManifest.xml:24:9-28:63
+283            android:name="androidx.room.MultiInstanceInvalidationService"
+283-->[androidx.room:room-runtime:2.5.0] /home/marc/.gradle/caches/8.14.3/transforms/21b91244852da9f9574391e333ae378c/transformed/room-runtime-2.5.0/AndroidManifest.xml:25:13-74
+284            android:directBootAware="true"
+284-->[androidx.room:room-runtime:2.5.0] /home/marc/.gradle/caches/8.14.3/transforms/21b91244852da9f9574391e333ae378c/transformed/room-runtime-2.5.0/AndroidManifest.xml:26:13-43
+285            android:exported="false" />
+285-->[androidx.room:room-runtime:2.5.0] /home/marc/.gradle/caches/8.14.3/transforms/21b91244852da9f9574391e333ae378c/transformed/room-runtime-2.5.0/AndroidManifest.xml:27:13-37
+286
+287        <receiver
+287-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+288            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+288-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+289            android:directBootAware="false"
+289-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+290            android:enabled="true"
+290-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+291            android:exported="true"
+291-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+292            android:permission="android.permission.DUMP" >
+292-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+293            <intent-filter>
+293-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+294                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+294-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+294-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+295            </intent-filter>
+296            <intent-filter>
+296-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+297                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+297-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+297-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+298            </intent-filter>
+299            <intent-filter>
+299-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+300                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+300-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+300-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+301            </intent-filter>
+302            <intent-filter>
+302-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+303                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+303-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+303-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/marc/.gradle/caches/8.14.3/transforms/4eaa327e818428f8ff126d98d79cd9da/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+304            </intent-filter>
+305        </receiver>
+306
+307        <service
+307-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/marc/.gradle/caches/8.14.3/transforms/aa222afea1b55985c09bbac800af7f2d/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+308            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+308-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/marc/.gradle/caches/8.14.3/transforms/aa222afea1b55985c09bbac800af7f2d/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+309            android:exported="false" >
+309-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/marc/.gradle/caches/8.14.3/transforms/aa222afea1b55985c09bbac800af7f2d/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+310            <meta-data
+310-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/marc/.gradle/caches/8.14.3/transforms/aa222afea1b55985c09bbac800af7f2d/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+311                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+311-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/marc/.gradle/caches/8.14.3/transforms/aa222afea1b55985c09bbac800af7f2d/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+312                android:value="cct" />
+312-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/marc/.gradle/caches/8.14.3/transforms/aa222afea1b55985c09bbac800af7f2d/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+313        </service>
+314        <service
+314-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/marc/.gradle/caches/8.14.3/transforms/f9930db5dcf3fa937b840855bc5e4174/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+315            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+315-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/marc/.gradle/caches/8.14.3/transforms/f9930db5dcf3fa937b840855bc5e4174/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+316            android:exported="false"
+316-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/marc/.gradle/caches/8.14.3/transforms/f9930db5dcf3fa937b840855bc5e4174/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+317            android:permission="android.permission.BIND_JOB_SERVICE" >
+317-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/marc/.gradle/caches/8.14.3/transforms/f9930db5dcf3fa937b840855bc5e4174/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+318        </service>
+319
+320        <receiver
+320-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/marc/.gradle/caches/8.14.3/transforms/f9930db5dcf3fa937b840855bc5e4174/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+321            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+321-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/marc/.gradle/caches/8.14.3/transforms/f9930db5dcf3fa937b840855bc5e4174/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+322            android:exported="false" />
+322-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/marc/.gradle/caches/8.14.3/transforms/f9930db5dcf3fa937b840855bc5e4174/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+323    </application>
+324
+325</manifest>

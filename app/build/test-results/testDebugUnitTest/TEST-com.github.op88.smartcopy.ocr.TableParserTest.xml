@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.op88.smartcopy.ocr.TableParserTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-07T14:11:59.372Z" hostname="marc" time="3.081">
+  <properties/>
+  <testcase name="parseToGrid returns correct dimensions for 3-column table" classname="com.github.op88.smartcopy.ocr.TableParserTest" time="2.955"/>
+  <testcase name="parse returns TSV for 2x2 table" classname="com.github.op88.smartcopy.ocr.TableParserTest" time="0.056"/>
+  <testcase name="parse returns null for single-column content" classname="com.github.op88.smartcopy.ocr.TableParserTest" time="0.032"/>
+  <testcase name="parse handles empty block list" classname="com.github.op88.smartcopy.ocr.TableParserTest" time="0.038"/>
+  <system-out><![CDATA[WARNING: No manifest file found at ./AndroidManifest.xml.
+Falling back to the Android OS resources only.
+To remove this warning, annotate your test class with @Config(manifest=Config.NONE).
+If you're using Android Gradle Plugin, add testOptions.unitTests.includeAndroidResources = true to your build.gradle
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

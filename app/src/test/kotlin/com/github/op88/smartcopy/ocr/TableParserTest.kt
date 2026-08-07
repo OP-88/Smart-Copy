@@ -2,18 +2,14 @@ package com.github.op88.smartcopy.ocr
 
 import android.graphics.Rect
 import com.google.mlkit.vision.text.Text
-import io.mockk.every
-import io.mockk.mockk
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.mockito.Mockito.*
 
-/**
- * Unit tests for [TableParser].
- *
- * These run on the JVM without a device — no Android framework required.
- * ML Kit types are mocked with MockK.
- */
+@RunWith(RobolectricTestRunner::class)
 class TableParserTest {
 
     private lateinit var parser: TableParser
@@ -23,42 +19,38 @@ class TableParserTest {
         parser = TableParser(rowTolerance = 12, colTolerance = 20)
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // Helpers
-    // ─────────────────────────────────────────────────────────────────────────
-
     private fun makeElement(text: String, cx: Int, cy: Int): Text.Element {
         val rect = Rect(cx - 20, cy - 8, cx + 20, cy + 8)
-        return mockk {
-            every { this@mockk.text } returns text
-            every { boundingBox } returns rect
-        }
+        val mockElement = mock(Text.Element::class.java)
+        `when`(mockElement.text).thenReturn(text)
+        `when`(mockElement.boundingBox).thenReturn(rect)
+        return mockElement
     }
 
     private fun makeLine(vararg elements: Text.Element): Text.Line {
-        return mockk {
-            every { this@mockk.elements } returns elements.toList()
-            every { text } returns elements.joinToString(" ") { it.text }
-            every { boundingBox } returns elements.mapNotNull { it.boundingBox }
-                .fold(Rect()) { acc, r -> if (acc.isEmpty) Rect(r) else acc.apply { union(r) } }
-        }
+        val mockLine = mock(Text.Line::class.java)
+        val textValue = elements.joinToString(" ") { it.text }
+        val bounds = elements.mapNotNull { it.boundingBox }
+            .fold(Rect()) { acc, r -> if (acc.isEmpty) Rect(r) else acc.apply { union(r) } }
+        
+        `when`(mockLine.elements).thenReturn(elements.toList())
+        `when`(mockLine.text).thenReturn(textValue)
+        `when`(mockLine.boundingBox).thenReturn(bounds)
+        return mockLine
     }
 
     private fun makeBlock(vararg lines: Text.Line): Text.TextBlock {
-        return mockk {
-            every { this@mockk.lines } returns lines.toList()
-            every { boundingBox } returns lines.mapNotNull { it.boundingBox }
-                .fold(Rect()) { acc, r -> if (acc.isEmpty) Rect(r) else acc.apply { union(r) } }
-        }
+        val mockBlock = mock(Text.TextBlock::class.java)
+        val bounds = lines.mapNotNull { it.boundingBox }
+            .fold(Rect()) { acc, r -> if (acc.isEmpty) Rect(r) else acc.apply { union(r) } }
+            
+        `when`(mockBlock.lines).thenReturn(lines.toList())
+        `when`(mockBlock.boundingBox).thenReturn(bounds)
+        return mockBlock
     }
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // Tests
-    // ─────────────────────────────────────────────────────────────────────────
 
     @Test
     fun `parse returns null for single-column content`() {
-        // All elements in one column → not a table
         val block = makeBlock(
             makeLine(makeElement("Item",  50, 50)),
             makeLine(makeElement("Value", 50, 80)),
@@ -69,8 +61,6 @@ class TableParserTest {
 
     @Test
     fun `parse returns TSV for 2x2 table`() {
-        // Row 1: (Name, 50, 50) | (Age, 200, 50)
-        // Row 2: (Alice, 50, 90) | (30, 200, 90)
         val block = makeBlock(
             makeLine(makeElement("Name", 50, 50), makeElement("Age", 200, 50)),
             makeLine(makeElement("Alice", 50, 90), makeElement("30", 200, 90)),

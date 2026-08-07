@@ -21,6 +21,13 @@ android {
         }
     }
 
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+        unitTests.all { test ->
+            test.jvmArgs("-Xshare:off")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -90,4 +97,8 @@ dependencies {
     // Test dependencies
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
+    testImplementation("net.bytebuddy:byte-buddy:1.14.17")
+    testImplementation("net.bytebuddy:byte-buddy-agent:1.14.17")
+    testImplementation("org.robolectric:robolectric:4.13")
 }

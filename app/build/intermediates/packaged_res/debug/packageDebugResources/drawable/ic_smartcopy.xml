@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Smart Copy — Official App Icon
+    Recreated from brand asset: S|C monogram, white on black,
+    rounded rectangle border, geometric bold letterforms,
+    vertical pipe divider.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- ── Layer 1: Pure black background ── -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M0,0 H108 V108 H0 Z" />
+
+    <!--
+        ── Layer 2: Rounded rectangle badge outline ──
+        Landscape pill — wider than tall, generous corner radius.
+        White stroke only, inner fill black (same as background).
+    -->
+    <path
+        android:fillColor="#FF000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="2.8"
+        android:pathData="
+            M 24,21
+            L 84,21
+            Q 95,21 95,32
+            L 95,76
+            Q 95,87 84,87
+            L 24,87
+            Q 13,87 13,76
+            L 13,32
+            Q 13,21 24,21
+            Z" />
+
+    <!--
+        ── Layer 3: "S" letterform ──
+        Bold geometric S — stroked center-line with butt caps.
+        strokeWidth ~9.5 gives the heavy fill weight matching the logo.
+        Path traces the S spine from top-right open end to bottom-left open end.
+    -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="9.5"
+        android:strokeLineCap="butt"
+        android:strokeLineJoin="round"
+        android:pathData="
+            M 44,33
+            C 40,29 20,29 17,34
+            Q 13,39 17,45
+            Q 21,51 32,52
+            Q 44,53 47,60
+            Q 50,67 46,72
+            C 42,77 22,77 16,73" />
+
+    <!--
+        ── Layer 4: Vertical pipe divider ──
+        Thin center divider matching the brand logo exactly.
+    -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="butt"
+        android:pathData="M 54,30 L 54,78" />
+
+    <!--
+        ── Layer 5: "C" letterform ──
+        Bold geometric C — horizontal flat cuts at top/bottom openings
+        (butt caps create the flat end termination visible in the logo).
+        Same stroke weight as S for visual consistency.
+    -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="9.5"
+        android:strokeLineCap="butt"
+        android:strokeLineJoin="round"
+        android:pathData="
+            M 90,37
+            C 86,29 65,29 61,37
+            Q 57,45 57,54
+            Q 57,63 61,71
+            C 65,79 86,79 90,71" />
+
+</vector>

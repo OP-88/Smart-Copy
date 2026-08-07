@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main.xml
+    Container for the Compose-based home screen.
+    The ComposeView fills the window; all UI is rendered in Kotlin.
+-->
+<androidx.compose.ui.platform.ComposeView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/compose_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
