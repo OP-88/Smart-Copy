@@ -114,7 +114,4 @@ If you find Smart Copy useful, visit **[smartcopy.vercel.app](https://smartcopy.
 
 ## License
 
-```
 GPL-3.0 license
-Copyright (c) 2026
-```
