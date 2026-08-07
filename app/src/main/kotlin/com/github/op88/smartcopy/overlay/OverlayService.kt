@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.graphics.PixelFormat
 import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
+import android.os.Build
 import android.os.IBinder
 import android.util.DisplayMetrics
 import android.view.WindowManager
@@ -79,10 +80,12 @@ class OverlayService : Service() {
     /** Release ML Kit model memory when the OS signals pressure. */
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
-        if (overlayView == null) {
-            // Overlay is not active — safe to drop the model from memory
-            if (::ocrEngine.isInitialized || true) {
-                // ocrEngine is lazy; if not yet touched it costs nothing
+        // If the overlay isn't active and the OS is under pressure, close the OCR
+        // engine to free the model weights from memory. It will lazy-init again on
+        // the next capture.
+        if (overlayView == null && level >= TRIM_MEMORY_RUNNING_LOW) {
+            if (::ocrEngine.isInitialized) {
+                ocrEngine.close()
             }
         }
     }
@@ -106,7 +109,7 @@ class OverlayService : Service() {
     override fun onDestroy() {
         dismissOverlay()
         serviceScope.cancel()
-        ocrEngine.close()
+        if (::ocrEngine.isInitialized) ocrEngine.close()
         super.onDestroy()
     }
 
@@ -120,9 +123,17 @@ class OverlayService : Service() {
         val projection: MediaProjection =
             projectionManager.getMediaProjection(resultCode, resultData)
 
+        // Use modern WindowMetrics on API 30+; fall back to deprecated API on 28-29
         val metrics = DisplayMetrics()
-        @Suppress("DEPRECATION")
-        windowManager.defaultDisplay.getRealMetrics(metrics)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val windowMetrics = windowManager.currentWindowMetrics
+            metrics.widthPixels  = windowMetrics.bounds.width()
+            metrics.heightPixels = windowMetrics.bounds.height()
+            metrics.densityDpi   = resources.displayMetrics.densityDpi
+        } else {
+            @Suppress("DEPRECATION")
+            windowManager.defaultDisplay.getRealMetrics(metrics)
+        }
 
         captureManager = ScreenCaptureManager(projection, metrics)
         val frame: Bitmap = captureManager!!.captureFrame()

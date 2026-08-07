@@ -24,11 +24,14 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      - name: Accept Android SDK licenses
+        run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Run Android Lint
-        run: ./gradlew lint --stacktrace
+        run: ./gradlew lint --no-daemon --stacktrace
 
       - name: Upload Lint Report
         if: always()
@@ -55,11 +58,14 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      - name: Accept Android SDK licenses
+        run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest --stacktrace
+        run: ./gradlew testDebugUnitTest --no-daemon --stacktrace
 
       - name: Upload Test Results
         if: always()
@@ -86,11 +92,14 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      - name: Accept Android SDK licenses
+        run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Assemble Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
@@ -100,7 +109,7 @@ jobs:
 
   # ──────────────────────────────────────────────────────────────────────────
   # Job 4: Zero-Network Verification
-  # Audit that INTERNET permission is absent from the final APK manifest.
+  # Audit that INTERNET permission is absent from the final manifest.
   # ──────────────────────────────────────────────────────────────────────────
   privacy-audit:
     name: Zero-Network Audit
@@ -119,7 +128,7 @@ jobs:
             echo "✅ Zero-network verified: INTERNET permission absent."
           fi
 
-      - name: Verify no network-requiring dependencies
+      - name: Verify no telemetry SDKs
         run: |
           if grep -rq "com.google.firebase\|com.amplitude\|com.mixpanel\|io.sentry" app/build.gradle.kts; then
             echo "❌ Analytics/telemetry SDK detected!"
