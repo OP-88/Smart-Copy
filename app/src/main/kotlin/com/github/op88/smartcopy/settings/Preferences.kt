@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 /** DataStore instance — one per app, process-safe. */
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "smartcopy_prefs")
+private val Context.dataStore: DataStore<androidx.datastore.preferences.core.Preferences> by preferencesDataStore(name = "smartcopy_prefs")
 
 /**
  * Preferences

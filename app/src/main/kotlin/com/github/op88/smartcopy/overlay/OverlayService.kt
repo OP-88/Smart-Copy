@@ -64,7 +64,7 @@ class OverlayService : Service() {
 
     // Lazy: ML Kit model is NOT loaded until the first screen capture fires.
     // At idle the process has zero ML Kit overhead.
-    private val ocrEngine: OcrEngine by lazy { OcrEngine() }
+    private var ocrEngine: OcrEngine? = null
 
     private var overlayView: FreezeOverlayView? = null
     private var captureManager: ScreenCaptureManager? = null
@@ -84,9 +84,8 @@ class OverlayService : Service() {
         // engine to free the model weights from memory. It will lazy-init again on
         // the next capture.
         if (overlayView == null && level >= TRIM_MEMORY_RUNNING_LOW) {
-            if (::ocrEngine.isInitialized) {
-                ocrEngine.close()
-            }
+            ocrEngine?.close()
+            ocrEngine = null
         }
     }
 
@@ -115,7 +114,8 @@ class OverlayService : Service() {
     override fun onDestroy() {
         dismissOverlay()
         serviceScope.cancel()
-        if (::ocrEngine.isInitialized) ocrEngine.close()
+        ocrEngine?.close()
+        ocrEngine = null
         super.onDestroy()
     }
 
@@ -146,7 +146,10 @@ class OverlayService : Service() {
         FrameBuffer.set(frame)
 
         // Run OCR in background
-        val ocrResult = ocrEngine.recognize(frame)
+        if (ocrEngine == null) {
+            ocrEngine = OcrEngine()
+        }
+        val ocrResult = ocrEngine!!.recognize(frame)
 
         // Show overlay on main thread
         withContext(Dispatchers.Main) {

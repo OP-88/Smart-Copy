@@ -130,7 +130,6 @@ fun SmartCopyHome(
                 modifier = Modifier.size(80.dp),
             ) {
                 Row(
-                    contentAlignment = Alignment.Center,
                     modifier = Modifier.fillMaxSize(),
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically,
