@@ -17,6 +17,7 @@
     <!-- Screen capture foreground service -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <!-- Notification channel (Android 13+) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -78,7 +79,11 @@
             android:name=".overlay.EdgeBubbleService"
             android:exported="false"
             android:foregroundServiceType="specialUse"
-            android:label="Smart Copy Bubble" />
+            android:label="Smart Copy Bubble">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Floating edge trigger bubble for quick access to screen capture" />
+        </service>
 
         <!-- ── Boot Receiver — restores edge bubble if it was enabled ── -->
         <receiver
