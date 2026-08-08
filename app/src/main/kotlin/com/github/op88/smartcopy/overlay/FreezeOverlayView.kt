@@ -14,6 +14,8 @@ import com.github.op88.smartcopy.settings.Preferences
 import com.github.op88.smartcopy.snap.MagneticSnapHelper
 import com.google.mlkit.vision.text.Text
 import kotlinx.coroutines.*
+import android.widget.Button
+import android.widget.FrameLayout.LayoutParams
 
 /**
  * FreezeOverlayView
@@ -89,6 +91,20 @@ class FreezeOverlayView(
         // Required: FrameLayout sets willNotDraw=true by default,
         // which would skip our onDraw entirely.
         setWillNotDraw(false)
+
+        // Add a Cancel button to the top-right corner
+        val cancelButton = Button(context).apply {
+            text = "Cancel"
+            setTextColor(Color.WHITE)
+            setBackgroundColor(Color.argb(180, 0, 0, 0))
+            setOnClickListener { onDismiss() }
+        }
+        val params = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+            gravity = Gravity.TOP or Gravity.END
+            topMargin = 100 // Leave space for status bar
+            rightMargin = 40
+        }
+        addView(cancelButton, params)
     }
 
     // ── Drawing ──────────────────────────────────────────────────────────────
@@ -133,6 +149,11 @@ class FreezeOverlayView(
     // ── Touch ────────────────────────────────────────────────────────────────
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        // If the user touches the very bottom edge (e.g. bottom 150px),
+        // let the system handle it for navigation gestures/buttons.
+        if (event.y > height - 150) {
+            return false
+        }
         handleTouch(event)
         return true
     }
