@@ -22,12 +22,12 @@ A precision Android OCR utility — draw a circle or box over any text on screen
 
 ```
 AndroidManifest.xml
-  └── ❌ android.permission.INTERNET    → ABSENT
-  └── ✅ SYSTEM_ALERT_WINDOW            → Overlay
-  └── ✅ FOREGROUND_SERVICE             → Screen capture
-  └── ✅ FOREGROUND_SERVICE_MEDIA_PROJECTION
-  └── ✅ POST_NOTIFICATIONS             → Android 13+
-  └── ✅ VIBRATE                        → Haptic feedback
+  [ABSENT] android.permission.INTERNET
+  [GRANTED] SYSTEM_ALERT_WINDOW           - Overlay
+  [GRANTED] FOREGROUND_SERVICE            - Screen capture
+  [GRANTED] FOREGROUND_SERVICE_MEDIA_PROJECTION
+  [GRANTED] POST_NOTIFICATIONS            - Android 13+
+  [GRANTED] VIBRATE                       - Haptic feedback
 ```
 
 No data ever leaves the device. Verified by the CI [zero-network audit](.github/workflows/ci.yml) on every push.

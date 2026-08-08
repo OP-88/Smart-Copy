@@ -208,7 +208,7 @@ fun SmartCopyHome(
                     .fillMaxWidth()
                     .height(54.dp),
             ) {
-                Text(text = "⚙  Settings", color = Color(0xFFCBD5E1), fontSize = 16.sp)
+                Text(text = "Settings", color = Color(0xFFCBD5E1), fontSize = 16.sp)
             }
 
             Spacer(Modifier.weight(1f))
@@ -232,7 +232,7 @@ private fun PermissionCard(onGrantClick: () -> Unit) {
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text("⚠ Overlay Permission Required", color = Color(0xFFFCA5A5), fontWeight = FontWeight.SemiBold)
+            Text("Overlay Permission Required", color = Color(0xFFFCA5A5), fontWeight = FontWeight.SemiBold)
             Text(
                 "Smart Copy needs \"Display over other apps\" permission to freeze the screen and show the OCR overlay.",
                 style = MaterialTheme.typography.bodySmall,
@@ -253,7 +253,7 @@ private fun StatusCard() {
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text("✓ Ready", color = Color(0xFF4ADE80), fontWeight = FontWeight.SemiBold)
+            Text("Ready", color = Color(0xFF4ADE80), fontWeight = FontWeight.SemiBold)
             listOf(
                 "Overlay permission granted",
                 "OCR engine loaded (offline)",

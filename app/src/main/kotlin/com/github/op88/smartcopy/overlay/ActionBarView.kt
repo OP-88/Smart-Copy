@@ -18,7 +18,7 @@ import com.github.op88.smartcopy.R
  * Actions:
  *  - Copy      — plain text copy to clipboard
  *  - Copy TSV  — table-aware TSV copy (shown only when [hasTable] is true)
- *  - ✕         — dismiss selection
+ *  - X          - dismiss selection
  */
 class ActionBarView(
     context: Context,
@@ -70,7 +70,7 @@ class ActionBarView(
             layoutParams = LinearLayout.LayoutParams((1 * dp).toInt(), LinearLayout.LayoutParams.MATCH_PARENT)
             setBackgroundColor(0xFF334155.toInt())
         }.also { row.addView(it) }
-        row.addView(makeButton("✕", onDismiss))
+        row.addView(makeButton("X", onDismiss))
 
         addView(row)
         positionBar()

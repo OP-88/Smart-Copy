@@ -3,12 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--
-        ╔══════════════════════════════════════════════════════════════════╗
-        ║  SMART COPY — ZERO NETWORK MANIFEST                             ║
-        ║  android.permission.INTERNET is intentionally ABSENT.           ║
-        ║  No data ever leaves this device. This is cryptographically     ║
-        ║  enforceable by inspecting this manifest.                       ║
-        ╚══════════════════════════════════════════════════════════════════╝
+        SMART COPY - ZERO NETWORK MANIFEST
+        android.permission.INTERNET is intentionally ABSENT.
+        No data ever leaves this device. This is cryptographically
+        enforceable by inspecting this manifest.
     -->
 
     <!-- Overlay: Floating Edge Bubble + Freeze overlay -->
@@ -28,9 +26,7 @@
     <!-- Restore edge bubble after device reboot (only if user had it enabled) -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         NO INTERNET PERMISSION — verified absence below for auditing
-         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- NO INTERNET PERMISSION - verified absence below for auditing -->
 
     <application
         android:allowBackup="false"

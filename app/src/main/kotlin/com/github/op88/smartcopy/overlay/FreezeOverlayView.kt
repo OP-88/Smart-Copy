@@ -232,11 +232,11 @@ class FreezeOverlayView(
             },
         )
         actionBar = bar
-        addView(bar)   // FrameLayout.addView ✓
+        addView(bar)   // FrameLayout.addView
     }
 
     private fun hideActionBar() {
-        actionBar?.let { removeView(it) }  // FrameLayout.removeView ✓
+        actionBar?.let { removeView(it) }  // FrameLayout.removeView
         actionBar = null
     }
 

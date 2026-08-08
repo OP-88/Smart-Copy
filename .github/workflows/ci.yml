@@ -128,17 +128,17 @@ jobs:
       - name: Verify no INTERNET permission in manifest
         run: |
           if grep -q '<uses-permission[^>]*android\.permission\.INTERNET' app/src/main/AndroidManifest.xml; then
-            echo "❌ INTERNET permission found in manifest — privacy violation!"
+            echo "FAIL: INTERNET permission found in manifest - privacy violation!"
             exit 1
           else
-            echo "✅ Zero-network verified: INTERNET permission absent."
+            echo "PASS: Zero-network verified - INTERNET permission absent."
           fi
 
       - name: Verify no telemetry SDKs
         run: |
           if grep -rq "com.google.firebase\|com.amplitude\|com.mixpanel\|io.sentry" app/build.gradle.kts; then
-            echo "❌ Analytics/telemetry SDK detected!"
+            echo "FAIL: Analytics/telemetry SDK detected!"
             exit 1
           else
-            echo "✅ No telemetry SDKs detected."
+            echo "PASS: No telemetry SDKs detected."
           fi
