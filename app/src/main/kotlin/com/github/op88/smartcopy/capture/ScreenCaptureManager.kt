@@ -43,6 +43,17 @@ class ScreenCaptureManager(
     private val handler = Handler(Looper.getMainLooper())
 
     init {
+        // Android 14+ requires a callback registered BEFORE createVirtualDisplay().
+        // Without this the system throws IllegalStateException.
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            mediaProjection.registerCallback(object : MediaProjection.Callback() {
+                override fun onStop() {
+                    virtualDisplay?.release()
+                    virtualDisplay = null
+                }
+            }, handler)
+        }
+
         virtualDisplay = mediaProjection.createVirtualDisplay(
             "SmartCopyCapture",
             width, height, density,
