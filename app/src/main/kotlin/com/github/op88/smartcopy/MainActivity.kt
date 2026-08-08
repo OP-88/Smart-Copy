@@ -125,18 +125,18 @@ fun SmartCopyHome(
     val context       = LocalContext.current
     val scrollState   = rememberScrollState()
 
-    // Re-evaluated every time the activity resumes (e.g. returning from
-    // system overlay-permission settings screen).
     var hasOverlayPermission by remember {
         mutableStateOf(Settings.canDrawOverlays(context))
     }
 
+    // Manual recheck — for OEM skins (MIUI/HyperOS etc.) that don't
+    // fire ON_RESUME reliably after returning from system settings.
+    val recheckPermission = { hasOverlayPermission = Settings.canDrawOverlays(context) }
+
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
-            if (event == Lifecycle.Event.ON_RESUME) {
-                hasOverlayPermission = Settings.canDrawOverlays(context)
-            }
+            if (event == Lifecycle.Event.ON_RESUME) recheckPermission()
         }
         lifecycleOwner.lifecycle.addObserver(observer)
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
@@ -198,7 +198,10 @@ fun SmartCopyHome(
 
             // Permission card (red) or ready card (teal)
             if (!hasOverlayPermission) {
-                PermissionCard(onGrantClick = onGrantOverlay)
+                PermissionCard(
+                    onGrantClick   = onGrantOverlay,
+                    onRecheckClick = recheckPermission,
+                )
             } else {
                 StatusCard()
             }
@@ -247,7 +250,10 @@ fun SmartCopyHome(
 }
 
 @Composable
-private fun PermissionCard(onGrantClick: () -> Unit) {
+private fun PermissionCard(
+    onGrantClick   : () -> Unit,
+    onRecheckClick : () -> Unit,
+) {
     Card(
         colors   = CardDefaults.cardColors(containerColor = Color(0xFF1C1917)),
         border   = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFEF4444)),
@@ -260,8 +266,13 @@ private fun PermissionCard(onGrantClick: () -> Unit) {
                 style = MaterialTheme.typography.bodySmall,
                 color = Color(0xFF94A3B8),
             )
+            // Step 1 — open system settings
             TextButton(onClick = onGrantClick) {
-                Text("Grant Permission  →", color = Color(0xFF38BDF8))
+                Text("1. Open permission settings  →", color = Color(0xFF38BDF8))
+            }
+            // Step 2 — manual recheck once the user has toggled SmartCopy on
+            TextButton(onClick = onRecheckClick) {
+                Text("2. I've granted it  —  check again", color = Color(0xFF4ADE80))
             }
         }
     }
