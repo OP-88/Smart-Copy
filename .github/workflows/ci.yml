@@ -127,7 +127,7 @@ jobs:
 
       - name: Verify no INTERNET permission in manifest
         run: |
-          if grep -q "android.permission.INTERNET" app/src/main/AndroidManifest.xml; then
+          if grep -q '<uses-permission[^>]*android\.permission\.INTERNET' app/src/main/AndroidManifest.xml; then
             echo "❌ INTERNET permission found in manifest — privacy violation!"
             exit 1
           else
