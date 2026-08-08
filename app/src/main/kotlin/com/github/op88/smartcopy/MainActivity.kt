@@ -1,9 +1,13 @@
 package com.github.op88.smartcopy
 
+import android.app.AppOpsManager
+import android.content.Context
 import android.content.Intent
 import android.media.projection.MediaProjectionManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Process
 import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -31,6 +35,38 @@ import androidx.lifecycle.LifecycleEventObserver
 import com.github.op88.smartcopy.overlay.OverlayService
 import com.github.op88.smartcopy.settings.SettingsActivity
 import com.github.op88.smartcopy.ui.theme.SmartCopyTheme
+
+/**
+ * MIUI/HyperOS workaround: Settings.canDrawOverlays() always returns false
+ * on Xiaomi devices for sideloaded apps even when the permission is granted.
+ * AppOpsManager holds the real answer on all Android versions.
+ */
+fun canDrawOverlays(context: Context): Boolean {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return true
+    // Standard check first
+    if (Settings.canDrawOverlays(context)) return true
+    // MIUI/HyperOS fallback via AppOpsManager
+    return try {
+        val mgr = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
+        @Suppress("DEPRECATION")
+        val mode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            mgr.unsafeCheckOpNoThrow(
+                AppOpsManager.OPSTR_SYSTEM_ALERT_WINDOW,
+                Process.myUid(),
+                context.packageName
+            )
+        } else {
+            mgr.checkOpNoThrow(
+                AppOpsManager.OPSTR_SYSTEM_ALERT_WINDOW,
+                Process.myUid(),
+                context.packageName
+            )
+        }
+        mode == AppOpsManager.MODE_ALLOWED
+    } catch (_: Exception) {
+        false
+    }
+}
 
 /**
  * MainActivity — Permission gate + launcher hub.
@@ -90,7 +126,7 @@ class MainActivity : ComponentActivity() {
      * on RESULT_OK.
      */
     private fun requestOverlayOrLaunch() {
-        if (!Settings.canDrawOverlays(this)) {
+        if (!canDrawOverlays(this)) {
             openOverlaySettings()
             return
         }
@@ -126,12 +162,12 @@ fun SmartCopyHome(
     val scrollState   = rememberScrollState()
 
     var hasOverlayPermission by remember {
-        mutableStateOf(Settings.canDrawOverlays(context))
+        mutableStateOf(canDrawOverlays(context))
     }
 
     // Manual recheck — for OEM skins (MIUI/HyperOS etc.) that don't
     // fire ON_RESUME reliably after returning from system settings.
-    val recheckPermission = { hasOverlayPermission = Settings.canDrawOverlays(context) }
+    val recheckPermission = { hasOverlayPermission = canDrawOverlays(context) }
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
