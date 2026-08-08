@@ -9,12 +9,10 @@
         android:targetSdkVersion="35" />
 
     <!--
-        ╔══════════════════════════════════════════════════════════════════╗
-        ║  SMART COPY — ZERO NETWORK MANIFEST                             ║
-        ║  android.permission.INTERNET is intentionally ABSENT.           ║
-        ║  No data ever leaves this device. This is cryptographically     ║
-        ║  enforceable by inspecting this manifest.                       ║
-        ╚══════════════════════════════════════════════════════════════════╝
+        SMART COPY - ZERO NETWORK MANIFEST
+        android.permission.INTERNET is intentionally ABSENT.
+        No data ever leaves this device. This is cryptographically
+        enforceable by inspecting this manifest.
     -->
 
 
@@ -42,12 +40,7 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.github.op88.smartcopy.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--
- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         NO INTERNET PERMISSION — verified absence below for auditing
-         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- NO INTERNET PERMISSION - verified absence below for auditing -->
     <application
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"

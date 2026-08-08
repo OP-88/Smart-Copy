@@ -46,7 +46,7 @@
     <string name="about_version_title">Version</string>
     <string name="action_copy">Copy</string>
     <string name="action_copy_tsv">Copy TSV</string>
-    <string name="action_dismiss">✕</string>
+    <string name="action_dismiss">X</string>
     <string name="app_name">Smart Copy</string>
     <string name="btn_grant_permission">Grant Permission →</string>
     <string name="btn_launch_overlay">Launch Smart Copy</string>
