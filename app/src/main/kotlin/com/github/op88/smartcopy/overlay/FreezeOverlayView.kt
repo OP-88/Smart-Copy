@@ -251,7 +251,9 @@ class FreezeOverlayView(
                 hideActionBar()
                 invalidate()
             },
-        )
+        ).apply {
+            layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+        }
         actionBar = bar
         addView(bar)   // FrameLayout.addView
     }
